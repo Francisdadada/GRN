@@ -1,0 +1,36 @@
+device: 'cuda:0'  # or 'cpu'
+
+dataset:
+  test_csv: 'ID/test.csv'  # Path to your test CSV file
+  batch_size: 1
+  num_workers: 4
+  pin_memory: true
+
+model:
+  num_classes: 7
+  generator:
+    input_channels: 1
+    output_channels: 1
+    ngf: 64
+    weights: 'model_weights/SEL/best_G.pth'
+  segmenter:
+    spatial_dims: 2
+    in_channels: 1
+    out_channels: 7  # Adjust based on your number of classes
+    channels: [16, 32, 64, 128, 256]
+    strides: [2, 2, 2, 2]
+    weights: 'model_weights/SEL/best_S.pth'
+
+metrics:
+  exclude_background: true  # Set to false if you want to include background in average Dice
+
+visualization:
+  color_map:
+    '0': [50, 50, 50]       # Background - Dark Gray
+    '1': [150, 50, 50]      # Class 1 - Muted Red
+    '2': [50, 150, 50]      # Class 2 - Muted Green
+    '3': [50, 50, 150]      # Class 3 - Muted Blue
+    '4': [150, 150, 50]     # Class 4 - Muted Yellow
+    '5': [150, 50, 150]     # Class 5 - Muted Magenta
+    '6': [50, 150, 150]     # Class 6 - Muted Cyan
+
