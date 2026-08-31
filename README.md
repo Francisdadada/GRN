@@ -109,16 +109,3 @@ docker run -p 8000:8000 ^
 pytest
 ruff check .
 ```
-
-## Interview Story
-
-This repo demonstrates the path from research code to production-minded ML engineering:
-
-1. Refactor monolithic scripts into a testable package.
-2. Make experiments reproducible with configs and deterministic setup.
-3. Separate training, evaluation, and inference concerns.
-4. Expose the model through a service boundary.
-5. Containerize the service.
-6. Document cloud deployment options and MLOps practices.
-
-See [docs/mlops.md](docs/mlops.md) for the longer version.
