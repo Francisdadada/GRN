@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+artifacts/
+mlruns/
+outputs/
+*.log
+.env
+
+# Data and trained weights are intentionally excluded from a public portfolio repo.
+dataset/
+model_weights/
+*.pth
+*.pt

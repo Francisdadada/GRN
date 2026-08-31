@@ -1,0 +1,29 @@
+seed: 42
+device: null
+
+data:
+  image_size: 256
+  labeled_images: dataset/0.05/labeled_img
+  labeled_masks: dataset/0.05/labeled_msk
+  labelled_images: dataset/0.05/labelled_img
+  labelled_masks: dataset/0.05/labelled_msk
+  unlabeled_images: dataset/0.05/unlabeled_img
+  unlabelled_images: dataset/0.05/unlabelled_img
+  val_images: dataset/val_img
+  val_masks: dataset/val_msk
+
+model:
+  num_classes: 7
+
+training:
+  batch_size: 4
+  num_workers: 4
+  epochs: 50
+  lr: 0.0002
+  lambda_adv: 1.0
+  lambda_seg: 100.0
+  lambda_pixel: 100.0
+  ict_alpha: 0.75
+
+artifacts:
+  checkpoint_dir: artifacts/checkpoints/grn_0.05

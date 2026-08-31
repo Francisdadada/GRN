@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grn-segmentation-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grn-segmentation-api
+  template:
+    metadata:
+      labels:
+        app: grn-segmentation-api
+    spec:
+      containers:
+        - name: api
+          image: grn-segmentation:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: GRN_GENERATOR_WEIGHTS
+              value: /app/artifacts/checkpoints/best_G.pth
+            - name: GRN_SEGMENTER_WEIGHTS
+              value: /app/artifacts/checkpoints/best_S.pth
+            - name: GRN_NUM_CLASSES
+              value: "7"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10

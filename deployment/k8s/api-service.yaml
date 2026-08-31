@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grn-segmentation-api
+spec:
+  type: ClusterIP
+  selector:
+    app: grn-segmentation-api
+  ports:
+    - port: 80
+      targetPort: 8000

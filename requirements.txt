@@ -1,0 +1,16 @@
+torch
+torchvision
+monai
+numpy
+scipy
+pillow
+SimpleITK
+albumentations
+opencv-python-headless
+pyyaml
+fastapi
+uvicorn[standard]
+python-multipart
+pytest
+ruff
+httpx
